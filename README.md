@@ -14,3 +14,10 @@ of a prompt, Manage the playlist server. They define six Possible commands:
 
 Since the application is based on a shell, it will remain necessary an audio player that supports RTP point to the IP address
 machine from which the connection to the application is performed.
+
+h3. Init Service With node app
+[Init Service](./screen_1.PNG)
+
+h3. Connect to the service
+[Connect](./screen_2.PNG)
+
