@@ -1,4 +1,4 @@
-# node-playlist-tcp
+## Node Playlist TCP
 
 In this practice a modification of the UDP application is made: it will adapt RTP sender to send RTP packets to the IP address of a client in
 rather than the IP of a group multicast. 
@@ -15,9 +15,9 @@ of a prompt, Manage the playlist server. They define six Possible commands:
 Since the application is based on a shell, it will remain necessary an audio player that supports RTP point to the IP address
 machine from which the connection to the application is performed.
 
-h3. Init Service With node app
-[Init Service](./screen_1.PNG)
+# Init Service With node app
+![Init Service](./screen_1.PNG "Init Service With node app")
 
-h3. Connect to the service
-[Connect](./screen_2.PNG)
+# Connect to the service
+![Connect](./screen_2.PNG "Connect to the service")
 
