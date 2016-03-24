@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/sergio11/node-playlist-tcp/issues"
   },
-  "homepage": "https://github.com/sergio11/node-playlist-tcp#readme"
+  "homepage": "https://github.com/sergio11/node-playlist-tcp#readme",
+  "dependencies": {
+    "bluebird": "^3.3.4"
+  }
 }
