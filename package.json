@@ -1,0 +1,24 @@
+{
+  "name": "node-playlist-tcp",
+  "version": "1.0.0",
+  "description": "Node Playlist TCP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergio11/node-playlist-tcp.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "RTP",
+    "TCP"
+  ],
+  "author": "Sergio Sánchez Sánchez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergio11/node-playlist-tcp/issues"
+  },
+  "homepage": "https://github.com/sergio11/node-playlist-tcp#readme"
+}
