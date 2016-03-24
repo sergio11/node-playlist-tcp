@@ -19,10 +19,10 @@ var RemotePrompt = function(library){
         this.server.close();
     };
     
-    this._resolveCommand = function(data){
+    this._resolveCommand = function(command){
         // se deshabilita el timeout por si hubiera sido activado
         this.conn.setTimeout(0);
-	    var command = data.toString('utf8').split("\r\n")[0];
+
         switch(command){
             case "list":
                 var playlist = this.source.list();
@@ -33,7 +33,7 @@ var RemotePrompt = function(library){
                     this.conn.write("\r\n" + (this.source.currentTrack() == song? "> " : "  ") + song);
                 }
                 this.conn.write("\r\n# ");
-            break;
+                break;
             case "play":
                 this.source.play();
                 break;
@@ -98,9 +98,9 @@ var RemotePrompt = function(library){
             });
 
             client.source.on('listEnd', function(){
-                var seconds = 1//10;
+                var seconds = 10;
                 client.conn.write("End of the list reached.Closing in " + seconds + " seconds\r\n# ");
-                client.conn.timeout(seconds * 1000, function(){
+                client.conn.setTimeout(seconds * 1000, function(){
                     delete sessionsDB[this.remoteAddress];
                     //close the connection
                     client.conn.end("Your session has expired. Closing.");
@@ -108,7 +108,10 @@ var RemotePrompt = function(library){
             });
             
             //receive incoming data from connections
-            client.conn.on('data', this._resolveCommand.bind(client));
+            client.conn.on('data', function(data){
+                var command = data.toString('utf8').split("\r\n")[0];
+                command && this._resolveCommand.apply(client,[command]);
+            }.bind(this));
             
             client.conn.on('close', function(){
                 client.source.stop();
@@ -144,6 +147,7 @@ exports.create = function(){
             actions[i].apply(app);
         };
         actions = undefined;
+        console.log("The Node-playlist-tcp is running");
     });
 
     return new function(){
